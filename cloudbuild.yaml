@@ -11,14 +11,11 @@ steps:
     id: "Install"
 
     # ! test
-    entrypoint: pip
+    entrypoint: python
     #paramteres du programme en entrrée pour cette
-    args: ["install", "-U", "pytest"]
+    args: ["-m", "pytest"]
     #id de step
-    id: "InstallPytest"
-
-    entrypoint: pytest
-    id: "pytest"
+    id: "Tests"
 
     # ! deploy
     # TODO
