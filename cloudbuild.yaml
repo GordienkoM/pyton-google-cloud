@@ -42,7 +42,7 @@ steps:
     args:
       - run
       - services
-      - create
+      - update
       - pyton-google-cloud
       - "--platform=managed"
       - "--image=europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/flasksample:$SHORT_SHA"
