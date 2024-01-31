@@ -3,12 +3,22 @@ steps:
   # ! build
   # installation des dépendances
   - name: python
+  #nom du programme e
     entrypoint: pip
+    #paramteres du programme en entrrée pour cette
     args: ["install", "-r", "requirements.txt", "--user"]
+    #id de step
     id: "Install"
 
     # ! test
-    # TODO
+    entrypoint: pip
+    #paramteres du programme en entrrée pour cette
+    args: ["install", "-U", "pytest"]
+    #id de step
+    id: "InstallPytest"
+
+    entrypoint: pytest
+    id: "pytest"
 
     # ! deploy
     # TODO
