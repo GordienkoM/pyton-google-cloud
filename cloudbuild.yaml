@@ -2,8 +2,8 @@ steps:
 
   # ! build
   # installation des dépendances
-  - name: python
-  #nom du programme e
+  - name: python #nom de bildeur
+    #nom du programme e
     entrypoint: pip
     #paramteres du programme en entrrée pour cette
     args: ["install", "-r", "requirements.txt", "--user"]
@@ -19,4 +19,21 @@ steps:
     id: "Tests"
 
     # ! deploy
-    # TODO
+    # build l'image Docker de l'application
+    - name: "gcr.io/cloud-builders/docker"
+      args:
+        [
+          "build",
+          "-t",
+          "europe-west1-docker.pkg.dev/serfa-gcp/$REPO_NAME/flasksample:$SHORT_SHA",
+          "-f",
+          "prod.Dockerfile",
+          ".",
+        ]
+      id: Build
+    # push de l'image sur Google Artifact Registry
+    - name: gcr.io/cloud-builders/docker
+      args:
+        - push
+        - "europe-west1-docker.pkg.dev/serfa-gcp/$REPO_NAME/flasksample:$SHORT_SHA"
+      id: Push
