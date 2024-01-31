@@ -23,7 +23,7 @@ steps:
       [
         "build",
         "-t",
-        "europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/flasksample:$SHORT_SHA",
+        "europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud:$SHORT_SHA",
         "-f",
         "prod.Dockerfile",
         ".",
@@ -33,10 +33,10 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - "europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/flasksample:$SHORT_SHA"
+      - "europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud:$SHORT_SHA"
     id: Push
     
-  # TODO deployer cette image en tant que service Cloud Run
+    # TODO deployer cette image en tant que service Cloud Run
   # déploiement sur Google Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk:slim"
     args:
@@ -45,7 +45,8 @@ steps:
       - update
       - pyton-google-cloud
       - "--platform=managed"
-      - "--image=europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/flasksample:$SHORT_SHA"
+      - "--port=5000"
+      - "--image=europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud:$SHORT_SHA"
       - "--region=europe-west1"
       - "--quiet"
     id: Deploy
