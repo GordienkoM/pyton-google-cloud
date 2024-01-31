@@ -11,7 +11,7 @@ steps:
     id: "Install"
 
     # ! test
-    entrypoint: python
+    entrypoint: python3
     #paramteres du programme en entrrée pour cette
     args: ["-m", "pytest"]
     #id de step
