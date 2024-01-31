@@ -10,7 +10,7 @@ steps:
     #id de step
     id: "Install"
 
-  - name: tests
+  - name: python
     # ! test
     entrypoint: python
     #paramteres du programme en entrrée pour cette
