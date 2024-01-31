@@ -1,6 +1,6 @@
 steps:
 
-  # ! build
+  # ! build t
   # installation des dépendances 
   # un "builder" est un container avec certaines dépendances pré installées
   - name: python # nom du "builder"
