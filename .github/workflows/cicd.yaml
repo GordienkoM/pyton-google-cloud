@@ -4,7 +4,7 @@ name: 4.3 module example 1 CICD pipeline
 # contrairement à Google Cloud Build, vous pouvez le configurer d'ici
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 # les "jobs" sont les étapes de votre pipeline
 jobs:
@@ -17,7 +17,7 @@ jobs:
             # nom complet de l'action GitHub qui permet de cloner le repo
             # https://github.com/marketplace?type=actions
             - uses: actions/checkout@v4
-            - name: build
+            - name: build de l'application
               # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
               run: |
                 echo "BUILD"
