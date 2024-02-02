@@ -22,5 +22,5 @@ jobs:
               run: |
                 echo "BUILD AND TEST"
                 docker compose up --build --force-recreate -d
-                docker compose exec app bash
+                docker compose exec app python -m, pytest
                 
