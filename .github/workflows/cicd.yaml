@@ -21,5 +21,6 @@ jobs:
               # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
               run: |
                 echo "BUILD AND TEST"
-                docker build -t hello-pyton .
+                docker compose up --build --force-recreate -d
+                docker compose exec app bash
                 
