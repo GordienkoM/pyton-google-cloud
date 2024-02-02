@@ -19,7 +19,7 @@ jobs:
             # https://github.com/marketplace?type=actions
             - uses: actions/checkout@v4
             - name: build-and-test
-              # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
+              # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite  
               run: |
                 echo "BUILD AND TEST"
                 docker compose up --build --force-recreate -d
