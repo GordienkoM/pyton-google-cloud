@@ -23,5 +23,5 @@ jobs:
               # docker compose exec app python -m pytest
               run: |
                 echo "BUILD AND TEST"
-                docker build -t hello-pyton .
+                pwd
                 
