@@ -45,6 +45,7 @@ jobs:
             file: ./prod.Dockerfile
             context: .
             push: true
+            # ${{ github.sha }} - recupere le tag de dernier commit 
             tags: |
               europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/pyton-google-cloud:latest	
               europe-west1-docker.pkg.dev/fluid-furnace-412810/pyton-google-cloud/pyton-google-cloud:${{ github.sha }}
